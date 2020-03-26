@@ -29,18 +29,14 @@ $(document).ready(function($) {
 
 function ajaxForm (form){
     $.ajax({
-        url:     'ajax_form.php', //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#"+form).serialize(),  // Сеарилизуем объект
-        success: function(response) { //Данные отправлены успешно
+        url:     'ajax_form.php',
+        type:     "POST",
+        dataType: "html",
+        data: $("#"+form).serialize(),
+        success: function(response) {
             result = $.parseJSON(response);
             $('#'+result.calendar).append('<p>'+result.text+'</p>')
-            //$('#result_form').html('Имя: '+result.name+'<br>Телефон: '+result.phonenumber);
             $('.popup-fade').fadeOut();
-    	},
-    	error: function(response) { // Данные не отправлены
-            //$('#result_form').html('Ошибка. Данные не отправлены.');
     	}
  	});
 }
