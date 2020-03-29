@@ -6,11 +6,16 @@ if (file_exists('data_base.txt')) {
     $read_file = file_get_contents('data_base.txt');
     $file_data = explode(';', $read_file);
     foreach($file_data as $data){
-        $pars = explode(':', $data);
-        $result[$pars[0]] = $pars[1];
+        $pars = explode('=', $data);
+        $pars_time = explode('time', $pars[0]);
+     
+        if(!empty($pars_time[1])){
+            $result[$pars_time[0]][]['time'] = $pars_time[1];
+        }
+        $result[$pars_time[0]][]['text'] = $pars[1];
     }
 }
-
+print_r($result);
 // проверяем, если в переменная month была установлена в URL-адресе,
 //либо используем PHP функцию date(), чтобы установить текущий месяц.
 if(isset($_GET['month'])) 
@@ -140,7 +145,9 @@ while($day <= $maxdays)
 	    $class = "cal";
     }
     if(isset($result[$select_day])){
-        $note .= "<p>".$result[$select_day]."</p>";
+        foreach($result[$select_day] as $results){
+            $note .= '<div class="form-block"><p class="'.$results['time'].'" style="text-align:left">'.$results['time'].'</p><p>'.$results['text'].'</p></div>';
+        }
     }
 	
 	//помечаем выходные дни красным
@@ -168,6 +175,8 @@ if($weekday != 7)
             <form method='post' id ='note-form'>
                 <p><b>Выберите дату :</b></p>
                 <p class='center'><input type='date' name='calendar' value='". date('Y-m-d')."'></p>
+                <p><b>Выберите время :</b></p>
+                <p class='center'><input type='time' name='time' value='". date('H:i')."'></p>
                 <p><b>Введите описание :</b></p>
                 <p class='center'><textarea rows='10' cols='45' name='text' placeholder='Текст описания'></textarea></p>
                 <p class='center'><input type='submit' name='btn-form' value='Отправить'></p>

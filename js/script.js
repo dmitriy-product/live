@@ -34,9 +34,10 @@ function ajaxForm (form){
         dataType: "html",
         data: $("#"+form).serialize(),
         success: function(response) {
-            result = $.parseJSON(response);
-            $('#'+result.calendar).append('<p>'+result.text+'</p>')
-            $('.popup-fade').fadeOut();
+			result = $.parseJSON(response);
+			$('#'+result.data).append('<div class="form-block"><p class="'+result.time+'" style="text-align:left">'+result.time+'</p><p>'+result.text+'</p></div>')
+			$('.popup-fade').fadeOut();
+			$("#"+form)[0].reset();
     	}
  	});
 }

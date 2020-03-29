@@ -1,10 +1,9 @@
 body {
 	font-size:14px;
-	padding: 15px 20px;
+  padding: 15px 20px;
+  background: linear-gradient(to top left, powderblue, pink)
 }
-body {
-	background: linear-gradient(to top left, powderblue, pink)
-}
+
 .popup-open {
     padding: 15px 20px;
     background: rebeccapurple;
@@ -14,6 +13,10 @@ body {
     display: flex;
     justify-content: center;
     margin: 5px 100px;
+}
+
+.form-block {
+    border-top: 1px solid;
 }
 
 p.center {
