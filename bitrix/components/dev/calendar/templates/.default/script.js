@@ -29,13 +29,13 @@ $(document).ready(function($) {
 
 function ajaxForm (form){
     $.ajax({
-        url:     'ajax_form.php',
+        url:      'bitrix/tools/ajax_form.php',
         type:     "POST",
         dataType: "html",
         data: $("#"+form).serialize(),
         success: function(response) {
 			result = $.parseJSON(response);
-			$('#'+result.data).append('<div class="form-block"><p class="'+result.time+'" style="text-align:left">'+result.time+'</p><p>'+result.text+'</p></div>')
+			$('#'+result.data).append('<p class="'+result.time+'" style="text-align:left">'+result.time+'</p><p>'+result.text+'</p>')
 			$('.popup-fade').fadeOut();
 			$("#"+form)[0].reset();
     	}

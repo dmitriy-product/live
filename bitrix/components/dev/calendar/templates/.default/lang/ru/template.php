@@ -1,0 +1,19 @@
+<?php
+$MESS['MONTH_1']  = 'январь';
+$MESS['MONTH_2']  = 'февраль';
+$MESS['MONTH_3']  = 'март';
+$MESS['MONTH_4']  = 'апрель';
+$MESS['MONTH_5']  = 'май';
+$MESS['MONTH_6']  = 'июнь';
+$MESS['MONTH_7']  = 'июль';
+$MESS['MONTH_8']  = 'август';
+$MESS['MONTH_9']  = 'сентябрь';
+$MESS['MONTH_10'] = 'октябрь';
+$MESS['MONTH_11'] = 'ноябрь';
+$MESS['MONTH_12'] = 'декабрь';
+$MESS['BTN_NOTE'] = 'Добавить заметку';
+$MESS['SELECT_DATA'] = 'Выберите дату';
+$MESS['SELECT_TIME'] = 'Выберите время';
+$MESS['DESCRIPTION'] = 'Введите описание';
+$MESS['TEXT_DESC']   = 'Текст описания';
+$MESS['BTN_SEND']    = 'Отправить';
